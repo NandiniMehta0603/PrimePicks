@@ -8,7 +8,7 @@ public class Preference {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    Integer id;
+    Integer id=-1;
     Integer action=0;
     Integer comedy=0;
     Integer horror=0;

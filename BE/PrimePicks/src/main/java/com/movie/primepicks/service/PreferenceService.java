@@ -28,8 +28,6 @@ public class PreferenceService {
 
         // Save user preference
         Preference preference = new Preference(action, comedy, horror, thriller, suspense);
-        Integer someId=1;
-        preference.setId(someId);
         preferenceRepository.save(preference);
 
         // Save user details
