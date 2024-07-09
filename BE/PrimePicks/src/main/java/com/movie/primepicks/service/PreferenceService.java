@@ -26,20 +26,14 @@ public class PreferenceService {
                                       Integer action, Integer comedy, Integer horror,
                                       Integer thriller, Integer suspense) {
 
-        // Save user preference
         Preference preference = new Preference(action, comedy, horror, thriller, suspense);
-        Integer someId=1;
-        preference.setId(someId);
         preferenceRepository.save(preference);
 
-        // Save user details
         User user = new User(name, gender, age, email);
         userRepository.save(user);
 
-        // Get movies based on preference
         List<Movie> movies = tmdbService.getMoviesByGenre(getPreferredGenre(preference));
 
-        // Attach trailers to movies
         if (movies != null) {
             for (Movie movie : movies) {
                 String trailerLink = tmdbService.getTrailerByMovieId(movie.getId());

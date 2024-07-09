@@ -57,7 +57,10 @@ public class TMDBService {
         private List<Movie> results;
 
         public List<Movie> getResults() {
-            return results;
+            return results.stream().map(movie -> {
+                movie.setPosterPath("https://image.tmdb.org/t/p/w500" + movie.getPosterPath());
+                return movie;
+            }).collect(Collectors.toList());
         }
 
         public void setResults(List<Movie> results) {

@@ -6,23 +6,24 @@ public class Movie {
     private String id;
     private String title;
     private String overview;
-
     @JsonProperty("release_date")
     private String releaseDate;
     private String trailerLink;
-
-    // Constructors, getters, and setters
+    private String posterPath;
 
     public Movie() {
     }
 
-    public Movie(String id, String title, String overview, String releaseDate, String trailerLink) {
+    public Movie(String id, String title, String overview, String releaseDate, String trailerLink, String posterPath) {
         this.id = id;
         this.title = title;
         this.overview = overview;
         this.releaseDate = releaseDate;
         this.trailerLink = trailerLink;
+        this.posterPath = posterPath;
     }
+
+    // Getters and Setters
 
     public String getId() {
         return id;
@@ -48,12 +49,10 @@ public class Movie {
         this.overview = overview;
     }
 
-    @JsonProperty("release_date")
     public String getReleaseDate() {
         return releaseDate;
     }
 
-    @JsonProperty("release_date")
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
@@ -66,13 +65,23 @@ public class Movie {
         this.trailerLink = trailerLink;
     }
 
+    public String getPosterPath() {
+        return posterPath;
+    }
+
+    public void setPosterPath(String posterPath) {
+        this.posterPath = posterPath;
+    }
+
     @Override
     public String toString() {
         return "Movie{" +
+                "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", overview='" + overview + '\'' +
                 ", releaseDate='" + releaseDate + '\'' +
                 ", trailerLink='" + trailerLink + '\'' +
+                ", posterPath='" + posterPath + '\'' +
                 '}';
     }
 }
